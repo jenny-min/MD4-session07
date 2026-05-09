@@ -1,9 +1,6 @@
 package com.example.md4session7.models.dto;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class StudentDTO {
     //Họ và tên không được để trống, độ dài 5-100 ký tự
@@ -21,4 +18,8 @@ public class StudentDTO {
     @Min(value = 0, message = "Điểm GPA phải nằm trong khoảng từ 0-10")
     @Max(value = 10, message = "Điểm GPA phải nằm trong khoảng từ 0-10")
     private double gpa;
+
+    //Validation định dạng Mã Sinh viên (Regex)
+    @Pattern(regexp = "^SV\\\\d{4}$", message = "Mã sinh viên phải có dạng SVxxxx (Ví dụ: SV0001, SV9999)")
+    private String studentCode;
 }
