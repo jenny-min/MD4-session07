@@ -1,5 +1,6 @@
 package com.example.md4session7.models.dto;
 
+import com.example.md4session7.validation.ViettelPhone;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -8,7 +9,8 @@ public class ParentDTO {
     @Pattern(regexp = "^[A-Z].*", message = "Tên viết hoa chữ cái đầu (VD: Tuấn)")
     private String name;
 
-    @Pattern(regexp = "^0[0-9]{9}$", message = "SĐT phải bắt đầu bằng số 0 và có 10 số")
+    @Pattern(regexp = "^0[0-9]{9}$", message = "SĐT bắt đầu bằng 0 và có 10 số")
+    @ViettelPhone(message = "SĐT phải là số Viettel hợp lệ")
     private String phoneNumber;
 
     public ParentDTO() {
@@ -27,11 +29,11 @@ public class ParentDTO {
         this.name = name;
     }
 
-    public String getPhone() {
+    public String getphoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhone(String phone) {
+    public void setphoneNumber(String phone) {
         this.phoneNumber = phone;
     }
 }
