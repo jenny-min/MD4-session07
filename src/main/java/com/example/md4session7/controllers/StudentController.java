@@ -5,17 +5,21 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentController {
+    @GetMapping
+    public List<StudentDTO> getStudents() {
+        List<StudentDTO> list = new ArrayList<>();
+        return list;
+    }
+
     @PostMapping
     public ResponseEntity<?> createStudent(
             @Valid @RequestBody StudentDTO studentDTO,

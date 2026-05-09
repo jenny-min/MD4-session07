@@ -1,5 +1,6 @@
 package com.example.md4session7.models.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
 public class StudentDTO {
@@ -23,15 +24,20 @@ public class StudentDTO {
     @Pattern(regexp = "^SV\\d{4}$", message = "Mã sinh viên phải có dạng SVxxxx (Ví dụ: SV0001, SV9999)")
     private String studentCode;
 
+    @NotNull(message = "Thông tin phụ huynh là bắt buộc")
+    @Valid
+    private ParentDTO parentDTO;
+
     public StudentDTO() {
     }
 
-    public StudentDTO(String fullName, String major, int age, double gpa, String studentCode) {
+    public StudentDTO(String fullName, String major, int age, double gpa, String studentCode, ParentDTO parentDTO) {
         this.fullName = fullName;
         this.major = major;
         this.age = age;
         this.gpa = gpa;
         this.studentCode = studentCode;
+        this.parentDTO = parentDTO;
     }
 
     public String getFullName() {
@@ -72,5 +78,13 @@ public class StudentDTO {
 
     public void setStudentCode(String studentCode) {
         this.studentCode = studentCode;
+    }
+
+    public ParentDTO getParentDTO() {
+        return parentDTO;
+    }
+
+    public void setParentDTO(ParentDTO parentDTO) {
+        this.parentDTO = parentDTO;
     }
 }
