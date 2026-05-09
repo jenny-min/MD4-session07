@@ -20,6 +20,57 @@ public class StudentDTO {
     private double gpa;
 
     //Validation định dạng Mã Sinh viên (Regex)
-    @Pattern(regexp = "^SV\\\\d{4}$", message = "Mã sinh viên phải có dạng SVxxxx (Ví dụ: SV0001, SV9999)")
+    @Pattern(regexp = "^SV\\d{4}$", message = "Mã sinh viên phải có dạng SVxxxx (Ví dụ: SV0001, SV9999)")
     private String studentCode;
+
+    public StudentDTO() {
+    }
+
+    public StudentDTO(String fullName, String major, int age, double gpa, String studentCode) {
+        this.fullName = fullName;
+        this.major = major;
+        this.age = age;
+        this.gpa = gpa;
+        this.studentCode = studentCode;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+    public String getStudentCode() {
+        return studentCode;
+    }
+
+    public void setStudentCode(String studentCode) {
+        this.studentCode = studentCode;
+    }
 }
